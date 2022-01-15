@@ -1,5 +1,5 @@
 <FindBugsFilter>
-    <!-- <Match>
+    <Match>
         <Bug category="SECURITY"/>
-    </Match> -->
+    </Match>
 </FindBugsFilter>

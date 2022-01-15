@@ -31,6 +31,9 @@ spec:
       command:
         - cat
       tty: true
+      volumeMounts:
+        - name: maven
+          mountPath: /root/.m2/
     - name: docker-tools
       image: rmkanda/docker-tools:latest
       env:

@@ -1,32 +1,33 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: hostname-service
+  name: usermanager-service
 spec:
   type: NodePort
   selector:
-    app: sample-api
+    app: usermanager-api
   ports:
-    - nodePort: 30163
-      port: 8080
-      targetPort: 8080
+    - nodePort: 30001
+      port: 30001
+      targetPort: 30001
 ---
 apiVersion: v1
 kind: Pod
 metadata:
+  name: usermanager
   labels:
-    app: sample-api
+    app: usermanager-api
 spec:
   containers:
     - name: sample-api
-      image: sample-api-service:latest
+      image: rmkanda/sample-api-service:latest
       resources:
         requests:
-          memory: "64Mi"
-          cpu: "250m"
+          memory: "512Mi"
+          cpu: "1000m"
         limits:
-          memory: "128Mi"
-          cpu: "500m"
+          memory: "1024Mi"
+          cpu: "2000m"
       securityContext:
         runAsNonRoot: true
         runAsUser: 10001
